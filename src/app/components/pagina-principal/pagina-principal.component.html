@@ -1,42 +1,28 @@
 <app-header></app-header>
 
-<carousel>
-    <ng-template ngbSlide>
-        <div class="picsum-img1-wrapper centrado">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMpChJOvoiMR7MMHKwp4RhGuuQx0lwzz2TrxM-F=w960-h960-n-o-k-v1" alt="Random first slide" />
-        </div>
-        <div class="carousel-caption">
-            <h3>Visita la Optica Nuevo Mundo</h3>
-            <p>Cristian Flores es el optometrista que realiza el procedimiento de la refracción.</p>
-        </div>
-    </ng-template>
-    <ng-template ngbSlide>
-        <div class="picsum-img2-wrapper centrado">
-            <img src="https://scripturesmediacdn.saviorconnect.com/images/scriptures-saviorconnect/media/images/rv1909-23305/23305-blue-bokeh-star-burst-rv1909-mateo-6-22_preview.jpg" alt="Random second slide" />
-        </div>
-        <div class="carousel-caption">
-            <p>Mensaje de buena fe</p>
-        </div>
-    </ng-template>
-    <ng-template ngbSlide>
-        <div class="picsum-img3-wrapper centrado">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOK8P6ZPvkx_hxjs3WaRJgrxwPAPj-dI0QTbX9ev2kohAs5bH7creKH27Pnb5pWTxJuqOGo5azFmLNk7uqWngbgIaLywX3KE9IoXJJE-TF4YmwT4w17lg5-qHiGkAPbTMe67YfC2xXb56UR-OuJfmiII0UrhNt3wWsMeLt-N5QLsZUjYXWN_DfP7IC3Q/s16000/WhatsApp%20Image%202023-11-14%20at%201.58.08%20PM%20(1).jpeg" alt="Random second slide" />
-        </div>
-        <div class="carousel-caption">
-            <p>Un catálogo bastante variado</p>
-        </div>
-    </ng-template>
-    <ng-template ngbSlide>
-        <div class="picsum-img4-wrapper centrado">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjox20OhkO1C-bUEANKUx0mtki7lAiP_5HFFMrLqapgLuQOwW5DL25XHINQCcqUNp7xcCqsmBIO1pN7ybYf7GxVdiqXdkdYTF4xWOdCFOi-1ZHZQLwDh7hr66dxfX0JqN6xIoFNM9t92TYw54fU7M57c8QDNXJFGdKHaGy8ztzFcCEAU_mBhzyDNNx_9Q/s16000/WhatsApp%20Image%202023-11-14%20at%201.58.07%20PM.jpeg" alt="Random second slide" />
-        </div>
-        <div class="carousel-caption">
-            <p>Atención de calidad</p>
-        </div>
-    </ng-template>
-</carousel>
 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pagina-principal.component.css">
+</head>
+
+<div class="container">
+    <ngx-slick-carousel class="carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <img src="{{ slide.image }}" alt="{{ slide.caption }}" class="img-fluid">
+        <div class="carousel-caption">
+          <h3>{{ slide.caption }}</h3>
+          <p>{{ slide.description }}</p>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
+<!--WELCOME-->
 <div class="contenedor">
+
     <div class="imagen">
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhmSve1Z3UPnFnc6W-JDZu8dde23GonaC-xTPd_uBhM6owWcOSJ-g3fNiJQ-gwTuQPzyUVYY5PdZ4ghCacI4FgNbgO2yjEDuEZX6BpPgAHPX2ATq32IZR2VaY2lh0iALoZ7vYXsTc8FJ4nJr_cO3UZ3F25JyINVpqNYri6QYaDbX-swr0_2lQog092kA/s16000/WhatsApp%20Image%202023-11-14%20at%201.58.08%20PM.jpeg">
     </div>
@@ -46,6 +32,9 @@
         <p>OPTICA NUEVO MUNDO</p>
     </div>
 </div>
+
+<!--PARTNERS-->
+
 
 <section class="partners">
     <div class="partners-icons">
@@ -63,5 +52,7 @@
 <div class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4559607412607!2d-77.0797291!3d-12.012099000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce92d44ad5f5%3A0x68423972a62e4a9b!2sOPTICA%20NUEVO%20MUNDO!5e0!3m2!1ses!2spe!4v1699987821444!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
+
+</html>
 
 <app-footer></app-footer>
