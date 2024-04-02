@@ -1,0 +1,7 @@
+<ngx-slick-carousel class="carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <img [src]="slide.image" alt="{{ slide.caption }}">
+      <div class="caption">{{ slide.caption }}</div>
+    </div>
+  </ngx-slick-carousel>
+  

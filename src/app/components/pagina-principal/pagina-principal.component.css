@@ -11,30 +11,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilos para el Carrusel */
-.centrado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(208, 208, 208);
-}
-
-/* Estilos para las imágenes del carrusel */
-.picsum-img-wrapper img {
-    width: 100%;
-    height: auto;
-}
-
-/* Estilos para la leyenda del carrusel */
-.carousel-caption {
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: 500;
-    font-family: "Montserrat", sans-serif;
-    padding-bottom: 50px;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-}
-
 /* Estilos para la tarjeta local */
 .imagen img {
     width: 100%;

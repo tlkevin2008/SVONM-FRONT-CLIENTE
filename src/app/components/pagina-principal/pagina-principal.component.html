@@ -1,58 +1,45 @@
-<app-header></app-header>
-
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pagina-principal.component.css">
 </head>
+<body>
 
-<div class="container">
-    <ngx-slick-carousel class="carousel" [config]="slideConfig">
-      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <img src="{{ slide.image }}" alt="{{ slide.caption }}" class="img-fluid">
-        <div class="carousel-caption">
-          <h3>{{ slide.caption }}</h3>
-          <p>{{ slide.description }}</p>
+    <app-header></app-header>
+    <app-carousel></app-carousel>
+    
+    
+    <div class="contenedor">
+        <div class="imagen">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhmSve1Z3UPnFnc6W-JDZu8dde23GonaC-xTPd_uBhM6owWcOSJ-g3fNiJQ-gwTuQPzyUVYY5PdZ4ghCacI4FgNbgO2yjEDuEZX6BpPgAHPX2ATq32IZR2VaY2lh0iALoZ7vYXsTc8FJ4nJr_cO3UZ3F25JyINVpqNYri6QYaDbX-swr0_2lQog092kA/s16000/WhatsApp%20Image%202023-11-14%20at%201.58.08%20PM.jpeg">
         </div>
-      </div>
-    </ngx-slick-carousel>
-  </div>
-
-<!--WELCOME-->
-<div class="contenedor">
-
-    <div class="imagen">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhmSve1Z3UPnFnc6W-JDZu8dde23GonaC-xTPd_uBhM6owWcOSJ-g3fNiJQ-gwTuQPzyUVYY5PdZ4ghCacI4FgNbgO2yjEDuEZX6BpPgAHPX2ATq32IZR2VaY2lh0iALoZ7vYXsTc8FJ4nJr_cO3UZ3F25JyINVpqNYri6QYaDbX-swr0_2lQog092kA/s16000/WhatsApp%20Image%202023-11-14%20at%201.58.08%20PM.jpeg">
+        <div class="texto">
+            <h2>VISTA DEL LOCAL</h2>
+            <p>OPTICA NUEVO MUNDO</p>
+        </div>
     </div>
-
-    <div class="texto">
-        <h2>VISTA DEL LOCAL</h2>
-        <p>OPTICA NUEVO MUNDO</p>
+    
+    <section class="partners">
+        <div class="partners-icons">
+            <img src="https://media.licdn.com/dms/image/C5103AQERJUnYGxIX9A/profile-displayphoto-shrink_400_400/0/1517426992181?e=2147483647&v=beta&t=UcvUfSplg-qAiH7G9kX-k36qSXMAm1gn5mmO7JYcyK8" alt="Partner 1">
+            <img src="https://opticahonda.com/969-large_default/topsa.jpg" alt="Partner 2">
+            <img src="https://clubfranquicia.pe/public/imagen/franquicia/club-franquicia-peru-franquicias-web-pastillas23-1551310429.png" alt="Partner 3">
+            <img src="https://grupofranja.net/wp-content/uploads/2022/07/7dest.jpg" alt="Partner 4">
+            <img src="https://opticahonda.com/img/cms/ocutec.jpg" alt="Partner 5">
+        </div>
+    </section>
+    
+    <div class="map-t">
+        <h3>Encuéntranos en:</h3>
     </div>
-</div>
-
-<!--PARTNERS-->
-
-
-<section class="partners">
-    <div class="partners-icons">
-        <img src="https://media.licdn.com/dms/image/C5103AQERJUnYGxIX9A/profile-displayphoto-shrink_400_400/0/1517426992181?e=2147483647&v=beta&t=UcvUfSplg-qAiH7G9kX-k36qSXMAm1gn5mmO7JYcyK8" alt="Partner 1">
-        <img src="https://opticahonda.com/969-large_default/topsa.jpg" alt="Partner 2">
-        <img src="https://clubfranquicia.pe/public/imagen/franquicia/club-franquicia-peru-franquicias-web-pastillas23-1551310429.png" alt="Partner 3">
-        <img src="https://grupofranja.net/wp-content/uploads/2022/07/7dest.jpg" alt="Partner 4">
-        <img src="https://opticahonda.com/img/cms/ocutec.jpg" alt="Partner 5">
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4559607412607!2d-77.0797291!3d-12.012099000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce92d44ad5f5%3A0x68423972a62e4a9b!2sOPTICA%20NUEVO%20MUNDO!5e0!3m2!1ses!2spe!4v1699987821444!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-</section>
+    
+    <app-footer></app-footer>
+    
 
-<div class="map-t">
-    <h3>Encuéntranos en:</h3>
-</div>
-<div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4559607412607!2d-77.0797291!3d-12.012099000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce92d44ad5f5%3A0x68423972a62e4a9b!2sOPTICA%20NUEVO%20MUNDO!5e0!3m2!1ses!2spe!4v1699987821444!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-
+</body>
 </html>
-
-<app-footer></app-footer>
