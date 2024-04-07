@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "SVONM-FRONT-CLIENTE:build:production"
+              "buildTarget": "SVONM-FRONT-CLIENTE:build:production"
             },
             "development": {
-              "browserTarget": "SVONM-FRONT-CLIENTE:build:development"
+              "buildTarget": "SVONM-FRONT-CLIENTE:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SVONM-FRONT-CLIENTE:build"
+            "buildTarget": "SVONM-FRONT-CLIENTE:build"
           }
         },
         "test": {
