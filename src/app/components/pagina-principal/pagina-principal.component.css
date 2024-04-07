@@ -13,9 +13,10 @@ body {
 
 /* Estilos para la tarjeta local */
 .imagen img {
-    width: 100%;
+    width: 85%;
     height: auto;
     margin: 55px 0;
+    float: right;
 }
 
 .contenedor {
