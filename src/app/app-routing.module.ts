@@ -3,15 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 const routes: Routes = [
   {
     path: '',
     component:PaginaPrincipalComponent
   },
-  {
+  /*{
     path: '**', redirectTo:'', pathMatch:'full'
-  }
+  },*/
+  { path: 'catalogo', component: CatalogoComponent}
 ];
 
 @NgModule({
