@@ -115,7 +115,6 @@ header {
     margin: 20px; /* Agrega un espacio de 10px alrededor del contenido del card */
 }
 
-
 .card-footer button {
     margin: auto;
     display: block;
@@ -135,8 +134,6 @@ header {
     height: 200px; /* Establece una altura fija para todas las imágenes */
     object-fit: cover; /* Ajusta el contenido de la imagen para cubrir el área designada */
 }
-
-
 
 .container {
     max-width: 1200px; /* Establece el ancho máximo del contenedor */
