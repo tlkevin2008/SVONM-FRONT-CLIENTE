@@ -4,6 +4,7 @@ import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-p
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-cita.component';
+import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'solicitar-cita',
     component:SolicitarCitasComponent
+  },
+  {
+    path: 'probador-virtual',
+    component:ProbadorVirtualComponent
   },
   {
     path: '**', redirectTo:'', pathMatch:'full'
