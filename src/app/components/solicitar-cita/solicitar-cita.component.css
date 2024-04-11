@@ -1,0 +1,117 @@
+/* solicitar-cita.component.css */
+
+/* Estilos para el formulario de solicitud de citas */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .btn-secondary,
+  .btn-primary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Estilo adicional para los mensajes de error (si decides implementar validación) */
+  .error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  
+  
+  
+  /* Estilos para el botón "Solicitar Cita" */
+  button.solicitar-cita-btn {
+    padding: 10px 20px; /* Ajusta el relleno para cambiar el tamaño del botón */
+    font-size: 16px; /* Ajusta el tamaño de la fuente */
+    /* Otros estilos opcionales */
+    background-color: #1F6DC2; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Borde sin estilo */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor de puntero al pasar el ratón */
+  }
+  
+  button:hover {
+    background-color: #1C4881;
+  }
+  
+  header button:hover {
+    background-color: #1C4881;
+  }
+  
+  /* Estilos para el botón "Cerrar" dentro del modal */
+  .btn-secondary {
+    background-color: #808080;
+    color: #ffffff;
+  }
+  
+  /* Estilos para el botón "Solicitar Cita" dentro del modal */
+  .btn-primary {
+    background-color: #409097;
+    color: #ffffff;
+  }
+  .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .cerrar-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
