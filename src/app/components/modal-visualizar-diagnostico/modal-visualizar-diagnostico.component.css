@@ -1,0 +1,86 @@
+/* Contenedor principal */
+.contenedor {
+    width: 800px;
+    padding: 20px;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    flex-direction: row;
+}
+
+/* Imagen con zoom */
+.imagen-zoom {
+    user-select: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Alinea horizontalmente */
+    overflow: hidden;
+}
+
+.imagen-zoom img {
+    max-width: 100%;
+    max-height: auto;
+    transition: transform 0.5s ease-in-out; /* Transición suave para el zoom */
+}
+
+/* Cursor para indicar que se puede arrastrar */
+.imagen-zoom img {
+    cursor: grab;
+  pointer-events: none; 
+}
+.imagen-zoom:active img {
+    cursor: grabbing;
+  }
+
+/* Eliminado para permitir la interacción con la imagen
+.imagen-zoom img {
+    pointer-events: none;
+} */
+
+/* Formulario */
+.formulario {
+    width: 50%;
+}
+
+.formulario h2 {
+    text-align: center;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario label,
+.formulario input,
+.formulario button {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.formulario button {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Media queries para diseño responsivo */
+@media (max-width: 768px) {
+    .contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .imagen-zoom,
+    .formulario {
+        width: 100%;
+        margin-right: 0;
+    }
+}
