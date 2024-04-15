@@ -14,8 +14,11 @@
         (mouseup)="endDrag()" 
         (mouseleave)="endDrag()">
             <img [src]="imageUrl" [style.transform]="transform">
-            <input type="range" min="1" max="5" value="1" (input)="updateZoom($event)" >
           </div>
+        <div class="sidebar">
+            <!-- Slider vertical -->
+            <input type="range" class="slider-vertical" min="1" max="10" value="1" (input)="updateZoom($event)">
+        </div>
         <div class="formulario">
             <h2>ACERQUE O ALEJE EL DIAGNOSTICO SEGUN SE LE INDICA</h2>
             <form action="#">

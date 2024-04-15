@@ -12,8 +12,8 @@ export class ModalVisualizarDiagnosticoComponent {
   startPosition: { x: number; y: number } = { x: 0, y: 0 };
   translation: { x: number; y: number } = { x: 0, y: 0 };
 
-  containerWidth: number = 800; // Ancho del contenedor en píxeles
-  containerHeight: number = 600; // Alto del contenedor en píxeles
+  containerWidth: number = 500; // Ancho del contenedor en píxeles
+  containerHeight: number = 800; // Alto del contenedor en píxeles
 
   ngOnInit() {
     // Agrega los listeners si es necesario
@@ -25,8 +25,23 @@ export class ModalVisualizarDiagnosticoComponent {
 
   updateZoom(event: Event): void {
     const input = event.target as HTMLInputElement;
-    const scaleValue = input.value;
-    this.transform = `translate(${this.translation.x}px, ${this.translation.y}px) scale(${scaleValue})`;
+    const newScale = parseFloat(input.value);
+    
+    // Actualiza la transformación de escala.
+    this.transform = `scale(${newScale})`;
+
+    // Recalcula y ajusta la posición para asegurar que la imagen esté centrada y dentro de los límites.
+    const maxX = (this.containerWidth * (newScale - 1)) / 2;
+    const maxY = (this.containerHeight * (newScale - 1)) / 2;
+
+    // Ajustar translation.x y translation.y dentro de los nuevos límites
+    const newX = Math.max(Math.min(this.translation.x, maxX), -maxX);
+    const newY = Math.max(Math.min(this.translation.y, maxY), -maxY);
+    
+    this.translation = { x: newX, y: newY };
+
+    // Actualizar la transformación para incluir la nueva traducción.
+    this.transform = `translate(${newX}px, ${newY}px) scale(${newScale})`;
   }
 
   startDrag(event: MouseEvent): void {
