@@ -6,6 +6,112 @@
     background-position: down;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header.address_bar {
+    background-color: #000000;
+    height: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 5%;
+
+}
+
+.address_bar div p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 1.2px;
+
+}
+
+header.schedule {
+    background-color: #1F6DC2;
+    height: 40px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 5%;
+
+}
+
+.schedule div p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 1.8px;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li,
+a,
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    height: 100px;
+}
+
+.logo {
+    width: 150px;
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #1F6DC2
+}
+
+/*
+.home{
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://media.istockphoto.com/id/1305367916/es/foto/retrato-de-una-joven-con-gafas-en-la-tienda.jpg?s=1024x1024&w=is&k=20&c=zsmrDh254EcKIRcUQ_anfgeOH0MdQeo0ixRrJiDB6nM=");
+    background-size: cover;
+    background-position: down;
+}
+
 .cover{
     width: 100%;
     height: 100vh;
@@ -13,22 +119,6 @@
     
 }
 
-.navbar{
-    width: 100%;
-    display: flex;
-    height: 50px;
-    align-items: first baseline;
-    background-color: aqua;
-    font-size: 20px;
-}
-.navbar2{
-    width: 100%;
-    height: 35px;
-    align-items: center;
-    background-color: blue;
-    font-size: 20px;
-    color: white;
-}
 .content{
     text-align: center;
     font-size: 30px;
@@ -36,5 +126,52 @@
 }
 .content h1{
     font-size: 54px;
+}
+*/
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: right;
+    width:80%; /* Ancho de la sección de servicios */
+    max-width: 1100px; /* Ancho máximo */
+}
+
+.service-info {
+    width: 70%; /* Ajusta el ancho de la información del servicio */
+    text-align: center; /* Alinea el texto a la izquierda */
+    margin-right: 50px; /* Margen entre la información y la imagen */
+}
+
+.service-info h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.service-info p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.service-image {
+    width: 60%; /* Ajusta el ancho de la imagen del servicio */
+    text-align: right; /* Alinea la imagen a la derecha */
+}
+
+.service-image img {
+    max-width: 100%;
+    height: auto;
 }
 
