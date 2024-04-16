@@ -1,0 +1,11 @@
+.camera-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+}
+
+.camera {
+    width: 100%; /* Ajusta el tamaño de la cámara según tus necesidades */
+    height: auto;
+}
