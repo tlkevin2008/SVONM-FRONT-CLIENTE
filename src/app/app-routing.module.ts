@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
+import {ModalVisualizarDiagnosticoComponent} from './components/modal-visualizar-diagnostico/modal-visualizar-diagnostico.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-cita.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'servicios', 
   component: ServiciosComponent },
   {
+
     path: 'solicitar-cita',
     component:SolicitarCitasComponent
   },
@@ -31,6 +33,11 @@ const routes: Routes = [
     path: 'catalogo', component: CatalogoComponent
   },
   { 
+
+    path:'modal-visualizar-diagnostico',
+    component:ModalVisualizarDiagnosticoComponent
+  },
+  {
     path: '**', redirectTo:'', pathMatch:'full'
   }
 ];
