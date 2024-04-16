@@ -18,7 +18,6 @@ header.address_bar {
     left: 0;
     right: 0;
     padding: 15px 5%;
-
 }
 
 .address_bar div p {
@@ -27,7 +26,6 @@ header.address_bar {
     font-size: 12px;
     color: #ffffff;
     letter-spacing: 1.2px;
-
 }
 
 header.schedule {
@@ -52,6 +50,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    padding-bottom: 50px;
 }
 
 li,
@@ -67,8 +66,8 @@ button {
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
-    padding: 5px 5px; /* Ajustar el padding para hacer el botón más grande */
-    margin: 10px; /* Ajustar el margen alrededor del botón */
+    padding: 8px 15px; /* Ajustar el padding para hacer el botón más grande */
+    margin: auto; /* Ajustar el margen alrededor del botón */
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;

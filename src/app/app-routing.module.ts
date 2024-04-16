@@ -24,10 +24,10 @@ const routes: Routes = [
   },
 
   {
-    path: '**', redirectTo:'', pathMatch:'full'
+    path: 'catalogo', component: CatalogoComponent
   },
   { 
-    path: 'catalogo', component: CatalogoComponent
+    path: '**', redirectTo:'', pathMatch:'full'
   }
 ];
 
