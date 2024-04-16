@@ -7,6 +7,8 @@ import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-c
 import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
+import { ServiciosComponent } from './components/servicios/servicios.component';
+
 
 const routes: Routes = [
   {
@@ -14,6 +16,8 @@ const routes: Routes = [
     component:PaginaPrincipalComponent
   },
 
+  { path: 'servicios', 
+  component: ServiciosComponent },
   {
     path: 'solicitar-cita',
     component:SolicitarCitasComponent

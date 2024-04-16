@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-cita.component';
 import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
@@ -21,9 +22,13 @@ import { CatalogoComponent } from './components/catalogo/catalogo.component';
     FooterComponent,
     PaginaPrincipalComponent,
     CarouselComponent,
+
     SolicitarCitasComponent,
     ProbadorVirtualComponent,
-    CatalogoComponent
+    CatalogoComponent,
+
+    ServiciosComponent
+
   ],
   imports: [
     BrowserModule,
