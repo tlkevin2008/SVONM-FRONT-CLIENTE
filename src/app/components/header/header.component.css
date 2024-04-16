@@ -56,8 +56,7 @@ body {
 }
 
 li,
-a,
-button {
+a{
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -94,3 +93,19 @@ header {
 .nav_links li a:hover {
     color: #1F6DC2
 }
+
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Color de texto blanco */
+    border: none;
+    border-radius: 20px; /* Bordes ovalados */
+    text-decoration: none; /* Eliminar subrayado del enlace */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  }
+  
+  /* Cambiar el color de fondo al pasar el ratón */
+  .custom-button:hover {
+    background-color: #0056b3; /* Color de fondo azul más oscuro */
+  }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-solicitar-cita',
@@ -11,30 +9,37 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SolicitarCitasComponent implements OnInit {
   citaForm: FormGroup;
-  constructor(private fb: FormBuilder,
-    private router: Router,
-    private modalService: NgbModal // Agrega NgbModal al constructor
-  ) {
+
+  constructor(private fb: FormBuilder, private router: Router) {
     this.citaForm = this.fb.group({
       nombre: ['', Validators.required],
       telefono: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       fechaCita: ['', Validators.required],
       horaCita: ['', Validators.required],
-      comentario: ['', Validators.required],
+      comentario: ['']
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  submitForm() {
+    if (this.citaForm.valid) {
+      // Envía el formulario o realiza otras acciones según sea necesario
+      console.log(this.citaForm.value);
+    } else {
+      // Muestra mensajes de validación al usuario si es necesario
+      this.markFormGroupTouched(this.citaForm);
+    }
   }
 
-  // Nuevo método para abrir el modal
-  openModal(content: any) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      // Manejar el cierre del modal si es necesario
-    }, (reason) => {
-      // Manejar el descarte del modal si es necesario
+  // Método auxiliar para marcar todos los controles del formulario como tocados
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
     });
   }
-
 }

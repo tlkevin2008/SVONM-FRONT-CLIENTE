@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { WebcamModule } from 'ngx-webcam';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -37,7 +38,8 @@ import { ContactosComponent } from './components/contactos/contactos.component';
     AppRoutingModule,
     SlickCarouselModule,
     WebcamModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
