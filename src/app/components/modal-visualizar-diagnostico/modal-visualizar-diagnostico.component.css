@@ -33,7 +33,7 @@
     width: 8px;
     height: calc(100% - 40px); /* Adaptar la altura al padding del contenedor */
     padding: 0 5px;
-    align-self: center; /
+    align-self: center; 
 }
 
 
