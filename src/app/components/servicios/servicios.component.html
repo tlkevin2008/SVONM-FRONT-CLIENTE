@@ -4,55 +4,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="servicios.component.css">
     <title>OPTICA NUEVO MUNDO</title>
 </head>
 <body>
-    <!--DIRECCION-->
-
-    <header class="address_bar">
-        <div>
-            <p>Mz, Av. Universitaria 8, Los Olivos 15302, Peru Lima, Provincia de Lima</p>
-        </div>
-    </header>
-
-    <!--NAVIGATION BAR-->
-    <header>
-        <a href="">
-        <img class="logo" src="https://lh3.googleusercontent.com/p/AF1QipPgSCe21pP3dZMy_cKYEyAyABw_ccL1Vv6g5dsq=w1080-h608-p-no-v0" alt="logo" >
-        </a>
-        <nav>
-            <ul class="nav_links">
-                <li><a href="">INICIO</a></li>
-                <li><a href="/nosotros">NOSOTROS</a></li>
-                <li><a routerLink="/servicios">SERVICIOS</a></li>
-                <li><a routerLink="/catalogo">CATALOGO</a></li>
-                <li><a href="/contactos">CONTACTOS</a></li>
-                <li><a href="/contactos">PROBADOR VIRTUAL</a></li>
-            </ul>
-        </nav>
-        
-    </header>
-    <header class="schedule">
-        <div>
-            <p>Horario de Atención: Lunes - Sabados : 10:00am - 7:00pm  </p>
-
-        </div>
-    </header>
+    <app-header></app-header>
     <section class="home">
-    <div class="container">
-        <section class="services">
-            <div class="service-info">
-                <h1>Servicios Ópticos</h1>
-                <p>ÁREA DE REFRACCIÓN: determina las correcciones necesarias en la salud óptica de la persona.</p>
-                <p>ÁREA DE VENTAS: según la medida y las especificaciones del cliente se comercializan los lentes.</p>
-            </div>
-            <div class="service-image">
-                <!-- Aquí puedes agregar tu imagen o URL -->
-                <img src="https://lh3.googleusercontent.com/p/AF1QipPgSCe21pP3dZMy_cKYEyAyABw_ccL1Vv6g5dsq=w1080-h608-p-no-v0" alt="Servicio Óptico">
-            </div>
-        </section>
-    </div>
-</section>
-    
+        <div class="container">
+            <section class="services">
+                <div class="service-layout">
+                    <div class="image-container">
+                        <img src="https://media.discordapp.net/attachments/1106397732026986517/1229622143571202058/Rectangle_64.jpg?ex=663059dc&is=661de4dc&hm=23258b482ecc96ee03bb49c7ffaab718b51ebe120430b54a4053be2a9e89bf1e&=&format=webp" alt="ImagenFigma">
+                    </div>
+                <div class="service-info">
+                    <h1>Servicios</h1>
+                    <ul>
+                    <li>ÁREA DE REFRACCIÓN: determina las correcciones necesarias en la salud óptica de la persona.</li>
+                    <li>ÁREA DE VENTAS: según la medida y las especificaciones del cliente se comercializan los lentes.</li>
+                    </ul>
+                </div>
+                </div>
+            </section>
+        </div>
+    </section>
+<app-footer></app-footer>
 </body>
