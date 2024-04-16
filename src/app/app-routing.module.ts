@@ -9,6 +9,7 @@ import { ProbadorVirtualComponent } from './components/probador-virtual/probador
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 import { ServiciosComponent } from './components/servicios/servicios.component';
+import { ContactosComponent } from './components/contactos/contactos.component';
 
 
 const routes: Routes = [
@@ -32,8 +33,10 @@ const routes: Routes = [
   {
     path: 'catalogo', component: CatalogoComponent
   },
+  {
+    path: 'contactos', component: ContactosComponent
+  },
   { 
-
     path:'modal-visualizar-diagnostico',
     component:ModalVisualizarDiagnosticoComponent
   },

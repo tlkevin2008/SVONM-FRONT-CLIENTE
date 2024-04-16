@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { WebcamModule } from 'ngx-webcam';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,7 +16,7 @@ import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-c
 import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { ModalVisualizarDiagnosticoComponent } from './components/modal-visualizar-diagnostico/modal-visualizar-diagnostico.component';
-
+import { ContactosComponent } from './components/contactos/contactos.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +30,14 @@ import { ModalVisualizarDiagnosticoComponent } from './components/modal-visualiz
     CatalogoComponent,
     ServiciosComponent,
     ModalVisualizarDiagnosticoComponent,
-    CarouselComponent
+    ContactosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SlickCarouselModule,
-    WebcamModule
+    WebcamModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
