@@ -5,12 +5,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-cita.component';
 import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
+
 
 const routes: Routes = [
   {
     path: '',
     component:PaginaPrincipalComponent
   },
+
   {
     path: 'solicitar-cita',
     component:SolicitarCitasComponent
@@ -19,8 +22,12 @@ const routes: Routes = [
     path: 'probador-virtual',
     component:ProbadorVirtualComponent
   },
+
   {
     path: '**', redirectTo:'', pathMatch:'full'
+  },
+  { 
+    path: 'catalogo', component: CatalogoComponent
   }
 ];
 

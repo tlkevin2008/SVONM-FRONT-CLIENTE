@@ -11,6 +11,8 @@ import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-p
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-cita.component';
 import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ProbadorVirtualComponent } from './components/probador-virtual/probador
     PaginaPrincipalComponent,
     CarouselComponent,
     SolicitarCitasComponent,
-    ProbadorVirtualComponent
+    ProbadorVirtualComponent,
+    CatalogoComponent
   ],
   imports: [
     BrowserModule,
