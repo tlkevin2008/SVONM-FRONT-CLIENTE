@@ -25,6 +25,10 @@ h1 {
     margin-left: -100px;
 }
 
+li{
+    margin-bottom: 50px;
+}
+
 .image-container img {
     max-width: 80%; /* Asegura que la imagen no sea demasiado grande */
     height: auto;
@@ -38,7 +42,7 @@ h1 {
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
-    margin: 70px 0;
+    margin: 100px 0 0;
 }
 /* Para centrar verticalmente la imagen y el texto */
     margin: 50px 0;
@@ -49,15 +53,12 @@ h1 {
     text-align: left; / Alineación del encabezado */
 }
 
-/* Estilos para la imagen */
-.image-container {
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
-    margin-left: -300px;
-}
+
 
 .image-container img {
-    max-width: 90%; /* Asegura que la imagen no sea demasiado grande */
+    max-width: 100%; /* Asegura que la imagen no sea demasiado grande */
     height: auto;
     display: block;
+    margin-left:-40px;
 }
 

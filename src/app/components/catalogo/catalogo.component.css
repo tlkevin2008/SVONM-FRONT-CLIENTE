@@ -20,6 +20,12 @@ header.address_bar {
     padding: 15px 5%;
 }
 
+h1{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
 .address_bar div p {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
