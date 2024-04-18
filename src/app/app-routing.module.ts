@@ -12,6 +12,9 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { ContactosComponent } from './components/contactos/contactos.component';
 
 
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -39,6 +42,10 @@ const routes: Routes = [
   { 
     path:'modal-visualizar-diagnostico',
     component:ModalVisualizarDiagnosticoComponent
+  },
+  {
+    path: 'Nosotros', 
+    component:NosotrosComponent
   },
   {
     path: '**', redirectTo:'', pathMatch:'full'
