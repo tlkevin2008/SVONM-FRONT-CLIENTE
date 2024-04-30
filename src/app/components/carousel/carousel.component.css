@@ -1,19 +1,8 @@
-.carousel {
-    width: 80%;
-    margin: auto;
-  }
-  
-  .slide {
-    text-align: center;
-  }
-  
-  .slide img {
-    width: 50%;
-  }
-  
-  .caption {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
+
+
+.carousel-item img {
+  margin-left: 500px;
+  max-width: 800px; /* Ancho máximo del contenedor */
+  height: 900px; /* Altura máxima del contenedor */
+  object-fit: cover; /* Escala la imagen para que se ajuste al tamaño del contenedor sin deformarla */
+}
