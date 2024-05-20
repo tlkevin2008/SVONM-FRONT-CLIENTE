@@ -3,7 +3,9 @@ h2{
   margin-top: 20px;
   text-align: center;
 }
-
+.container{
+  margin-bottom: 75px;
+}
 /* Estilos para el contenedor principal */
 .solicitar-cita-container {
   width: 100%;
@@ -36,17 +38,19 @@ h2{
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
 /* Estilos para los botones */
 .modal-footer {
   margin-top: 20px;
   text-align: right;
+  margin-bottom: 15px;
 }
 
 .btn-secondary {
-  background-color: #ccc;
-  color: #fff;
+  background-color: #ff0000;
+  color: #ffffff;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
@@ -65,4 +69,9 @@ h2{
 
 .btn-primary:hover {
   background-color: #0056b3;
+}
+
+.text-danger{
+  text-align: start;
+  margin-left: 7px;
 }

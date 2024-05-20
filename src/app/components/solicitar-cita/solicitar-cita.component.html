@@ -3,32 +3,80 @@
 <!-- solicitar-cita.component.html -->
 <div class="container">
   <h2>Solicitar Cita</h2>
-  <form [formGroup]="citaForm" (ngSubmit)="submitForm()">
+  <form [formGroup]="citaForm" (ngSubmit)="agregarCita()">
     <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" formControlName="nombre" required>
+      <label>Nombre:</label>
+      <input
+        type="text"
+        formControlName="nombre"
+        class="form-control form-control-lg"
+        placeholder="Escriba su nombre..."
+      />
+      <div class="text-danger"
+            *ngIf="citaForm.get('nombre')?.hasError('required') && citaForm.get('nombre')?.touched">
+        <span>Su nombre es <strong>obligatorio</strong></span>
+      </div>
     </div>
     <div class="form-group">
-      <label for="telefono">Teléfono:</label>
-      <input type="tel" id="telefono" formControlName="telefono" required>
+      <label>Teléfono / Movil:</label>
+      <input
+        type="number"
+        formControlName="telefono"
+        class="form-control form-control-lg"
+        placeholder="Escriba su número de telefono..."
+      />
+      <div class="text-danger"
+            *ngIf="citaForm.get('telefono')?.hasError('required') && citaForm.get('telefono')?.touched">
+        <span>Su telefono es <strong>obligatorio</strong></span>
+      </div>
     </div>
     <div class="form-group">
-      <label for="email">Correo Electrónico:</label>
-      <input type="email" id="email" formControlName="email" required>
+      <label>Correo Electrónico:</label>
+      <input
+        type="text"
+        formControlName="email"
+        class="form-control form-control-lg"
+        placeholder="Escriba su número de correo electrónico..."
+      />
+      <div class="text-danger"
+            *ngIf="citaForm.get('email')?.hasError('required') && citaForm.get('email')?.touched">
+        <span>Su correo electrónico es <strong>obligatorio</strong></span>
+      </div>
     </div>
     <div class="form-group">
-      <label for="fecha">Fecha de la cita: (No atendemos Domingos)</label>
-      <input type="date" id="fecha" formControlName="fechaCita" required>
-    </div>           
-    <div class="form-group">
-      <label for="hora">Hora de la cita: (Atendemos de 10am - 7pm)</label>
-      <input type="time" id="hora" formControlName="horaCita" required>
+      <label>Fecha de la cita: (No atendemos Domingos)</label>
+      <input type="date" formControlName="fecha" />
+      <div class="text-danger"
+            *ngIf="citaForm.get('fecha')?.hasError('required') && citaForm.get('fecha')?.touched">
+        <span>La fecha es <strong>obligatoria</strong></span>
+      </div>
     </div>
     <div class="form-group">
-      <label for="comentario">Comentario:</label>
-      <textarea id="comentario" formControlName="comentario"></textarea>
+      <label>Hora de la cita: (Atendemos de 10am - 7pm)</label>
+      <input type="time" formControlName="tiempo" />
+      <div class="text-danger"
+            *ngIf="citaForm.get('tiempo')?.hasError('required') && citaForm.get('tiempo')?.touched">
+        <span>La hora es <strong>obligatoria</strong></span>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Solicitar</button>
+    <div class="form-group">
+      <label>Comentario: (Opcional)</label>
+      <textarea
+        type="text"
+        formControlName="comentario"
+        class="form-control form-control-lg"
+        placeholder="Escriba su comentario..."
+      ></textarea>
+    </div>
+    <button type="submit" [disabled]="citaForm.invalid" class="btn btn-primary btn-lg float-end">
+      Solicitar
+    </button>
+    <button
+      routerLink="/"
+      class="btn btn-secondary btn-lg float-start"
+    >
+      Volver
+    </button>
   </form>
 </div>
 

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { WebcamModule } from 'ngx-webcam';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 
 import { AppComponent } from './app.component';
@@ -37,7 +39,9 @@ import { ContactosComponent } from './components/contactos/contactos.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    ToastrModule.forRoot(),
     WebcamModule,
     FormsModule,
     ReactiveFormsModule

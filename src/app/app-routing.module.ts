@@ -7,11 +7,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-cita.component';
 import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
-
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { ContactosComponent } from './components/contactos/contactos.component';
-
-
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 

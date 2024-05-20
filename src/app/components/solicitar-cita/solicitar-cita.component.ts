@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Cita } from 'src/app/models/cita';
 
 @Component({
   selector: 'app-solicitar-cita',
@@ -10,36 +12,36 @@ import { Router } from '@angular/router';
 export class SolicitarCitasComponent implements OnInit {
   citaForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService) {
     this.citaForm = this.fb.group({
       nombre: ['', Validators.required],
       telefono: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      fechaCita: ['', Validators.required],
-      horaCita: ['', Validators.required],
+      fecha: ['', Validators.required],
+      tiempo: ['', Validators.required],
       comentario: ['']
     });
   }
 
-  ngOnInit(): void {}
-
-  submitForm() {
-    if (this.citaForm.valid) {
-      // Envía el formulario o realiza otras acciones según sea necesario
-      console.log(this.citaForm.value);
-    } else {
-      // Muestra mensajes de validación al usuario si es necesario
-      this.markFormGroupTouched(this.citaForm);
-    }
+  ngOnInit(): void {
   }
 
-  // Método auxiliar para marcar todos los controles del formulario como tocados
-  markFormGroupTouched(formGroup: FormGroup) {
-    Object.values(formGroup.controls).forEach(control => {
-      control.markAsTouched();
-      if (control instanceof FormGroup) {
-        this.markFormGroupTouched(control);
-      }
-    });
+  agregarCita(){
+    console.log(this.citaForm)
+
+    console.log(this.citaForm.get('cita')?.value);
+
+    const CITA: Cita ={
+      nombre: this.citaForm.get('nombre')?.value,
+      telefono: this.citaForm.get('telefono')?.value,
+      email: this.citaForm.get('email')?.value,
+      fecha: this.citaForm.get('fecha')?.value,
+      tiempo: this.citaForm.get('tiempo')?.value,
+      comentario: this.citaForm.get('comentario')?.value,
+    }
+
+    console.log(CITA);
+    this.toastr.success('La cita se realizo con exito!', 'Cita realizada!');
+    this.router.navigate(['/']);
   }
 }
