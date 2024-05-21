@@ -1,28 +1,43 @@
 <app-header></app-header>
 
 <div class="contact-form">
-    <h2>Formulario de Contacto</h2>
-    <form (ngSubmit)="submitForm()">
-      <div>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" [(ngModel)]="formData.nombre" required>
+  <h2>Formulario de Contacto</h2>
+  <form [formGroup]="contactoForm" (ngSubmit)="agregarContacto()">
+    <div>
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre"
+          placeholder="Escriba su nombre..." />
+      <div class="text-danger"
+        *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">
+        <span>Su nombre es <strong>obligatorio</strong></span>
       </div>
-      <div>
-        <label for="telefono">Teléfono:</label>
-        <input type="text" id="telefono" name="telefono" [(ngModel)]="formData.telefono" required>
+    </div>
+    <div>
+      <label>Teléfono / Movil:</label>
+      <input type="number" formControlName="telefono"
+          placeholder="Escriba su número..." />
+      <div class="text-danger"
+        *ngIf="contactoForm.get('telefono')?.hasError('required') && contactoForm.get('telefono')?.touched">
+        <span>Su número es <strong>obligatorio</strong></span>
       </div>
-      <div>
-        <label for="email">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+    </div>
+    <div>
+      <label>Correo Electrónico:</label>
+      <input type="text" formControlName="email"
+          placeholder="Escriba su email..." />
+      <div class="text-danger"
+        *ngIf="contactoForm.get('email')?.hasError('required') && contactoForm.get('email')?.touched">
+        <span>Su correo electrónico es <strong>obligatorio</strong></span>
       </div>
-      <div>
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" [(ngModel)]="formData.mensaje" required></textarea>
-      </div>
-      <button type="submit">Enviar</button>
-    </form>
+    </div>
+    <div>
+      <label>Mensaje:</label>
+      <textarea type="text" formControlName="mensaje"
+          placeholder="Escriba su mensaje..."></textarea>
+    </div>
+    <button routerLink="/" class="btn btn-secondary float-start">Volver</button>
+    <button type="submit" [disabled]="contactoForm.invalid" class="float-end">Enviar</button>
+  </form>
 </div>
 
-
 <app-footer></app-footer>
-  

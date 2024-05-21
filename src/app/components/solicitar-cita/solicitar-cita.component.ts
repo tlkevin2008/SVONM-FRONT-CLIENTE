@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Cita } from 'src/app/models/cita';
+import { CitaService } from 'src/app/services/cita.service';
 
 @Component({
   selector: 'app-solicitar-cita',
@@ -12,7 +13,10 @@ import { Cita } from 'src/app/models/cita';
 export class SolicitarCitasComponent implements OnInit {
   citaForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, 
+              private router: Router, 
+              private toastr: ToastrService,
+              private _citaService: CitaService) {
     this.citaForm = this.fb.group({
       nombre: ['', Validators.required],
       telefono: ['', Validators.required],
@@ -41,7 +45,12 @@ export class SolicitarCitasComponent implements OnInit {
     }
 
     console.log(CITA);
-    this.toastr.success('La cita se realizo con exito!', 'Cita realizada!');
-    this.router.navigate(['/']);
+    this._citaService.guardarCita(CITA).subscribe(data => {
+      this.toastr.success('La cita se realizo con exito!', 'Cita realizada!');
+      this.router.navigate(['/']);
+    }, error => {
+      console.log(error);
+      this.citaForm.reset();
+    })
   }
 }
