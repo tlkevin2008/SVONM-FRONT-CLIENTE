@@ -1,11 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Diagnostico } from 'src/app/models/diagnostico';
+import { DiagnosticoService } from 'src/app/services/diagnostico.service';
 
 @Component({
   selector: 'app-modal-visualizar-diagnostico',
   templateUrl: './modal-visualizar-diagnostico.component.html',
-  styleUrl: './modal-visualizar-diagnostico.component.css'
+  styleUrls: ['./modal-visualizar-diagnostico.component.css']
 })
-export class ModalVisualizarDiagnosticoComponent {
+export class ModalVisualizarDiagnosticoComponent implements OnInit{
+  diagnosticoForm: FormGroup;
+  
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private toastr: ToastrService,
+              private _diagnosticoService: DiagnosticoService){
+    this.diagnosticoForm = this.fb.group({
+      fila: ['', Validators.required],
+      malestar: ['', Validators.required],
+      procedimiento: ['', Validators.required]
+    })
+  }
+  
   imageUrl: string = 'assets/fotos/prueba-ocular-optico-con-el-mensaje-de-insercion-gr4fpk.jpg';
   transform: string = 'scale(1)';
   isDragging: boolean = false;
@@ -17,6 +35,27 @@ export class ModalVisualizarDiagnosticoComponent {
 
   ngOnInit() {
     // Agrega los listeners si es necesario
+  }
+
+  agregarDiagnostico(){
+    console.log(this.diagnosticoForm)
+
+    console.log(this.diagnosticoForm.get('diagnostico')?.value)
+
+    const DIAGNOSTICO: Diagnostico = {
+      fila: this.diagnosticoForm.get('fila')?.value,
+      malestar: this.diagnosticoForm.get('malestar')?.value,
+      procedimiento: this.diagnosticoForm.get('procedimiento')?.value,
+    }
+
+    console.log(DIAGNOSTICO);
+    this._diagnosticoService.guardarDiagnostico(DIAGNOSTICO).subscribe(data => {
+      this.toastr.success('Su diagnostico fue enviado','Diagnostico Completado!');
+      this.router.navigate(['/'])
+    }, error => {
+      console.log(error);
+      this.diagnosticoForm.reset();
+    })
   }
 
   ngOnDestroy() {

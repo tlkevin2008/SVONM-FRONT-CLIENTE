@@ -1,114 +1,111 @@
-
-/* Contenedor principal */
-.contenedor {
-    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhmSve1Z3UPnFnc6W-JDZu8dde23GonaC-xTPd_uBhM6owWcOSJ-g3fNiJQ-gwTuQPzyUVYY5PdZ4ghCacI4FgNbgO2yjEDuEZX6BpPgAHPX2ATq32IZR2VaY2lh0iALoZ7vYXsTc8FJ4nJr_cO3UZ3F25JyINVpqNYri6QYaDbX-swr0_2lQog092kA/s16000/WhatsApp%20Image%202023-11-14%20at%201.58.08%20PM.jpeg');
-    background-size: cover;
-    background-position:center;
+body {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* Contenedor principal */
+  .contenedor {
     position: relative;
     width: 100%;
     max-width: 1200px; /* Establecer un ancho máximo para todo el contenedor */
     padding: 20px;
     display: flex;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
     flex-direction: row; /* Mantener todo en línea horizontal */
-}
-
-.contenedor::before {
+    gap: 20px; /* Espacio entre los elementos */
+    margin-top: 100px; /* Ajusta este valor según sea necesario */
+  }
+  
+  .contenedor::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.664); 
     z-index: -1;
-}
-
-.slider-vertical {
+  }
+  
+  .slider-vertical {
     writing-mode: bt-lr; 
     -webkit-appearance: slider-vertical;
     width: 8px;
     height: calc(100% - 40px); /* Adaptar la altura al padding del contenedor */
     padding: 0 5px;
     align-self: center; 
-}
-
-
-
-/* Imagen con zoom */
-.imagen-zoom {
+  }
+  
+  /* Imagen con zoom */
+  .imagen-zoom {
     user-select: none;
     position: relative;
-    width: 100%;
-    height: 100%;
-    margin-right: 20px;
+    width: 50%; /* Ajusta el ancho según sea necesario */
     display: flex;
     align-items: center;
-    justify-content: center;  /* Alinea horizontalmente */
+    justify-content: center; /* Alinea horizontalmente */
     overflow: hidden;
-}
-
-.imagen-zoom img {
+  }
+  
+  .imagen-zoom img {
     max-width: 100%;
-    max-height: auto;
+    max-height: 100%;
     transition: transform 0.5s ease-in-out; /* Transición suave para el zoom */
-}
-
-/* Cursor para indicar que se puede arrastrar */
-.imagen-zoom img {
+  }
+  
+  /* Cursor para indicar que se puede arrastrar */
+  .imagen-zoom img {
     cursor: grab;
-  pointer-events: none; 
-}
-.imagen-zoom:active img {
+    pointer-events: none; 
+  }
+  
+  .imagen-zoom:active img {
     cursor: grabbing;
   }
-
-/* Eliminado para permitir la interacción con la imagen
-.imagen-zoom img {
-    pointer-events: none;
-} */
-
-/* Formulario */
-.formulario {
-    width: 50%;
-}
-
-.formulario h2 {
+  
+  /* Formulario */
+  .formulario {
+    width: 50%; /* Ajusta el ancho según sea necesario */
+  }
+  
+  .formulario h2 {
     text-align: center;
-}
-
-.formulario form {
+  }
+  
+  .formulario form {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.formulario label,
-.formulario input,
-.formulario button {
+  }
+  
+  .formulario label,
+  .formulario input,
+  .formulario button {
     width: 100%;
     padding: 5px;
     margin-top: 5px;
-}
-
-.formulario button {
+  }
+  
+  .formulario button {
     margin-top: 10px;
     cursor: pointer;
-}
-
-/* Media queries para diseño responsivo */
-@media (max-width: 768px) {
+  }
+  
+  /* Media queries para diseño responsivo */
+  @media (max-width: 768px) {
     .contenedor {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px; /* Ajuste adicional para dispositivos móviles */
     }
     
     .imagen-zoom,
     .formulario {
-        width: 100%;
-        margin-right: 0;
+      width: 100%;
+      margin-right: 0;
     }
-}
+  }
+  
+  .text-danger{
+    text-align: start;
+    margin-left: 7px;
+  }

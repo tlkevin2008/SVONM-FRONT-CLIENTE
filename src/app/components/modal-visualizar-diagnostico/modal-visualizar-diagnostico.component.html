@@ -1,39 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="modal-visualizar-diagnostico.component.css">
-</head>
+<app-header></app-header>
+
 <body>
-    <div class="contenedor">
-        <div class="imagen-zoom"
-        (mousedown)="startDrag($event)" 
-        (mousemove)="onDrag($event)" 
-        (mouseup)="endDrag()" 
-        (mouseleave)="endDrag()">
-            <img [src]="imageUrl" [style.transform]="transform">
-          </div>
-        <div class="sidebar">
-            <!-- Slider vertical -->
-            <input type="range" class="slider-vertical" min="1" max="10" value="1" (input)="updateZoom($event)">
-        </div>
-        <div class="formulario">
-            <h2>ACERQUE O ALEJE EL DIAGNOSTICO SEGUN SE LE INDICA</h2>
-            <form action="#">
-                <label for="fila">HASTA QUE FILA PUEDE LEER</label>
-                <input type="text" id="fila" name="fila" required>
-                <br>
-                <label for="malestar">TIENE ALGUN MALESTAR</label>
-                <input type="text" id="malestar" name="malestar" required>
-                <br>
-                <label for="problema">COMENTE SI SUFRIO UN PROBLEMA RECIENTE</label>
-                <input type="text" id="problema" name="problema" required>
-                <br>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+  <div class="contenedor">
+    <div
+      class="imagen-zoom"
+      (mousedown)="startDrag($event)"
+      (mousemove)="onDrag($event)"
+      (mouseup)="endDrag()"
+      (mouseleave)="endDrag()"
+    >
+      <img
+        [src]="imageUrl"
+        [style.transform]="transform"
+        alt="Imagen del diagnóstico"
+      />
     </div>
+    <div class="sidebar">
+      <!-- Slider vertical -->
+      <input
+        type="range"
+        class="slider-vertical"
+        min="1"
+        max="10"
+        value="1"
+        (input)="updateZoom($event)"
+      />
+    </div>
+    <div class="formulario">
+      <h2>ACERQUE O ALEJE EL DIAGNOSTICO SEGUN SE LE INDICA</h2>
+      <form [formGroup]="diagnosticoForm" (ngSubmit)="agregarDiagnostico()">
+        <label>¿Hasta qué fila puede leer?</label>
+        <input
+          type="text"
+          formControlName="fila"
+          placeholder="Indique el número y detalle..."
+        />
+        <br />
+        <div
+          class="text-danger"
+          *ngIf="
+            diagnosticoForm.get('fila')?.hasError('required') &&
+            diagnosticoForm.get('fila')?.touched
+          "
+        >
+          <span
+            >La fila es <strong>obligatoria,</strong> si no presenta colocar
+            ninguno</span
+          >
+        </div>
+        <label>¿Qué malestar presenta? </label>
+        <input
+          type="text"
+          formControlName="malestar"
+          placeholder="Indique el malestar..."
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            diagnosticoForm.get('malestar')?.hasError('required') &&
+            diagnosticoForm.get('malestar')?.touched
+          "
+        >
+          <span
+            >Su malestar es <strong>obligatorio,</strong> si no presenta colocar
+            ninguno</span
+          >
+        </div>
+        <br />
+        <label>¿Se realizo algun procedimiento médico?</label>
+        <input
+          type="text"
+          formControlName="procedimiento"
+          placeholder="Indique si se opero o su tratamiento..."
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            diagnosticoForm.get('procedimiento')?.hasError('required') &&
+            diagnosticoForm.get('procedimiento')?.touched
+          "
+        >
+          <span
+            >El procedimiento es <strong>obligatorio,</strong> si no presenta
+            colocar ninguno</span
+          >
+          <br />
+        </div>
+
+        <button type="submit" [disabled]="diagnosticoForm.invalid">
+          Enviar
+        </button>
+        <button routerLink="/" type="">Volver</button>
+      </form>
+    </div>
+  </div>
 </body>
-</html>
+
+<app-footer></app-footer>
