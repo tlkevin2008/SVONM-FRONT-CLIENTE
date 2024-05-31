@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CatalogoService {
-  url = 'https://fantastic-waddle-xqxvxjw67p9h99x9-4000.app.github.dev/api/catalogos/';
+  url = 'http://localhost:4000/api/catalogos/';
+
+  //https://fantastic-waddle-xqxvxjw67p9h99x9-4000.app.github.dev/api/catalogos/
 
   constructor(private http : HttpClient) { }
 
