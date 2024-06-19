@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CatalogoService {
-  url = 'http://localhost:4000/api/catalogos/';
+  url = 'https://cuddly-acorn-v6p7g5xrj7jj24vv-4000.app.github.dev/api/catalogos/';
 
   constructor(private http : HttpClient) { }
 

@@ -1,7 +1,9 @@
 <app-header></app-header>
 
 <body>
+  
   <div class="contenedor">
+    
     <div
       class="imagen-zoom"
       (mousedown)="startDrag($event)"
@@ -9,12 +11,14 @@
       (mouseup)="endDrag()"
       (mouseleave)="endDrag()"
     >
+    
       <img
         [src]="imageUrl"
         [style.transform]="transform"
         alt="Imagen del diagnóstico"
       />
     </div>
+    
     <div class="sidebar">
       <!-- Slider vertical -->
       <input
@@ -33,7 +37,7 @@
         <input
           type="text"
           formControlName="fila"
-          placeholder="Indique el número y detalle..."
+          placeholder="Indique el número"
         />
         <br />
         <div
@@ -94,6 +98,7 @@
       </form>
     </div>
   </div>
+  
 </body>
 
 <app-footer></app-footer>

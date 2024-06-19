@@ -7,7 +7,7 @@ import { Diagnostico } from '../models/diagnostico';
   providedIn: 'root'
 })
 export class DiagnosticoService {
-  url = 'https://fantastic-waddle-xqxvxjw67p9h99x9-4000.app.github.dev/api/diagnosticos/'
+  url = 'https://cuddly-acorn-v6p7g5xrj7jj24vv-4000.app.github.dev/api/diagnosticos/'
 
   constructor(private http: HttpClient) { }
 
