@@ -11,7 +11,7 @@
       (mouseup)="endDrag()"
       (mouseleave)="endDrag()"
     >
-    
+  
       <img
         [src]="imageUrl"
         [style.transform]="transform"
@@ -31,7 +31,7 @@
       />
     </div>
     <div class="formulario">
-      <h2>ACERQUE O ALEJE EL DIAGNOSTICO SEGUN SE LE INDICA</h2>
+      <h2>INDIQUE SU DIAGNOSTICO REALIZADO</h2>
       <form [formGroup]="diagnosticoForm" (ngSubmit)="agregarDiagnostico()">
         <label>¿Hasta qué fila puede leer?</label>
         <input
@@ -40,17 +40,20 @@
           placeholder="Indique el número"
         />
         <br />
+        <div class="text-danger" *ngIf="
+                    diagnosticoForm.get('fila')?.hasError('required') &&
+                    diagnosticoForm.get('fila')?.touched
+                  ">
+          <span>Indicar el numero de fila es <strong>obligatorio,</strong> </span>
+        </div>
         <div
           class="text-danger"
           *ngIf="
-            diagnosticoForm.get('fila')?.hasError('required') &&
+            diagnosticoForm.get('fila')?.hasError('pattern') &&
             diagnosticoForm.get('fila')?.touched
           "
         >
-          <span
-            >La fila es <strong>obligatoria,</strong> si no presenta colocar
-            ninguno</span
-          >
+          <span>Solo se permiten números del<strong>1 al 11.</strong></span>
         </div>
         <label>¿Qué malestar presenta? </label>
         <input
@@ -69,6 +72,13 @@
             >Su malestar es <strong>obligatorio,</strong> si no presenta colocar
             ninguno</span
           >
+        </div>
+          <div class="text-danger" *ngIf="diagnosticoForm.get('malestar')?.hasError('noNumerico')">
+            <span>No se permiten datos numéricos en este campo.</span>
+          </div>
+        <div class="text-danger"
+            *ngIf="diagnosticoForm.get('malestar')?.hasError('maxlength') && diagnosticoForm.get('malestar')?.touched">
+          <span>El campo no debe exceder los <strong>50</strong> caracteres.</span>
         </div>
         <br />
         <label>¿Se realizo algun procedimiento médico?</label>
@@ -89,6 +99,13 @@
             colocar ninguno</span
           >
           <br />
+        </div>
+        <div class="text-danger" *ngIf="diagnosticoForm.get('procedimiento')?.hasError('noNumerico')">
+          <span>No se permiten datos numéricos en este campo.</span>
+        </div>
+        <div class="text-danger"
+          *ngIf="diagnosticoForm.get('procedimiento')?.hasError('maxlength') && diagnosticoForm.get('procedimiento')?.touched">
+          <span>El campo no debe exceder los <strong>50</strong> caracteres.</span>
         </div>
 
         <button type="submit" [disabled]="diagnosticoForm.invalid">

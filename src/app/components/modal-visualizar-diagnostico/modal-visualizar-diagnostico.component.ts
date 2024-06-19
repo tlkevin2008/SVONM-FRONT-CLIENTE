@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Diagnostico } from 'src/app/models/diagnostico';
@@ -18,9 +18,9 @@ export class ModalVisualizarDiagnosticoComponent implements OnInit{
               private toastr: ToastrService,
               private _diagnosticoService: DiagnosticoService){
     this.diagnosticoForm = this.fb.group({
-      fila: ['', Validators.required],
-      malestar: ['', Validators.required],
-      procedimiento: ['', Validators.required]
+      fila: ['', [Validators.required, Validators.pattern('^(?:[1-9]|1[0-1])$')]],
+      malestar: ['', [Validators.required, Validators.maxLength(50), this.noNumericoValidator]],
+      procedimiento: ['', [Validators.required, Validators.maxLength(50), this.noNumericoValidator]]
     })
   }
   
@@ -35,6 +35,13 @@ export class ModalVisualizarDiagnosticoComponent implements OnInit{
 
   ngOnInit() {
     // Agrega los listeners si es necesario
+  }
+  noNumericoValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (/\d/.test(value)) {
+      return { 'noNumerico': true };
+    }
+    return null;
   }
 
   agregarDiagnostico(){

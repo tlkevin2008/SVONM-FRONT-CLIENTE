@@ -25,6 +25,23 @@ body {
     bottom: 0;
     z-index: -1;
   }
+        .recomendacion-texto {
+          font-weight: bold;
+          text-align: center;
+          position: absolute;
+          top: 10px;
+          /* Ajusta la posición superior según sea necesario */
+          left: 50%;
+          /* Centra horizontalmente */
+          transform: translateX(-50%);
+          /* Centra horizontalmente */
+          width: 100%;
+          /* Opcional: ajusta el ancho según sea necesario */
+          /* Ajusta el padding según sea necesario */
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          z-index: 1;
+          /* Asegura que esté sobre la imagen */
+        }
   
   .slider-vertical {
     writing-mode: bt-lr; 
