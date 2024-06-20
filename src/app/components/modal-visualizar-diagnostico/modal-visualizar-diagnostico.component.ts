@@ -18,10 +18,10 @@ export class ModalVisualizarDiagnosticoComponent implements OnInit{
               private toastr: ToastrService,
               private _diagnosticoService: DiagnosticoService){
     this.diagnosticoForm = this.fb.group({
-      fila: ['', Validators.required],
-      malestar: ['', Validators.required],
-      procedimiento: ['', Validators.required]
-    })
+      fila: ['', [Validators.required, Validators.pattern('^(1[0-1]|[1-9])$')]],
+      malestar: ['', [Validators.required, Validators.pattern('^[^\\s].*')]],
+      procedimiento: ['', [Validators.required, Validators.pattern('^[^\\s].*')]]
+    });
   }
   
   imageUrl: string = 'assets/fotos/prueba-ocular-optico-con-el-mensaje-de-insercion-gr4fpk.jpg';
@@ -118,4 +118,5 @@ export class ModalVisualizarDiagnosticoComponent implements OnInit{
     const scaleMatch = this.transform.match(/scale\(([^)]+)\)/);
     return scaleMatch ? parseFloat(scaleMatch[1]) : 1;
   }
+
 }

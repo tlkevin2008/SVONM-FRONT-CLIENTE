@@ -38,15 +38,13 @@
         <br />
         <div
           class="text-danger"
-          *ngIf="
-            diagnosticoForm.get('fila')?.hasError('required') &&
-            diagnosticoForm.get('fila')?.touched
-          "
+          *ngIf="diagnosticoForm.get('fila')?.invalid && diagnosticoForm.get('fila')?.dirty"
         >
-          <span
-            >La fila es <strong>obligatoria,</strong> si no presenta colocar
-            ninguno</span
-          >
+        <span *ngIf="diagnosticoForm.get('fila')?.hasError('required')">
+          La fila es <strong>obligatoria</strong></span>
+        <span *ngIf="diagnosticoForm.get('fila')?.hasError('pattern')">
+          Solo se permiten números del 1 al 11
+        </span>
         </div>
         <label>¿Qué malestar presenta? </label>
         <input
@@ -56,15 +54,14 @@
         />
         <div
           class="text-danger"
-          *ngIf="
-            diagnosticoForm.get('malestar')?.hasError('required') &&
-            diagnosticoForm.get('malestar')?.touched
-          "
+          *ngIf="diagnosticoForm.get('malestar')?.invalid && diagnosticoForm.get('malestar')?.dirty"
         >
-          <span
-            >Su malestar es <strong>obligatorio,</strong> si no presenta colocar
-            ninguno</span
-          >
+          <span *ngIf="diagnosticoForm.get('malestar')?.hasError('required')">
+            Su malestar es <strong>obligatorio,</strong> si no presenta colocar ninguno
+          </span>
+          <span *ngIf="diagnosticoForm.get('malestar')?.hasError('pattern')">
+            No puede comenzar con un espacio en blanco
+          </span>
         </div>
         <br />
         <label>¿Se realizo algun procedimiento médico?</label>
@@ -75,16 +72,14 @@
         />
         <div
           class="text-danger"
-          *ngIf="
-            diagnosticoForm.get('procedimiento')?.hasError('required') &&
-            diagnosticoForm.get('procedimiento')?.touched
-          "
+          *ngIf="diagnosticoForm.get('procedimiento')?.invalid && diagnosticoForm.get('procedimiento')?.dirty"
         >
-          <span
-            >El procedimiento es <strong>obligatorio,</strong> si no presenta
-            colocar ninguno</span
-          >
-          <br />
+          <span *ngIf="diagnosticoForm.get('procedimiento')?.hasError('required')">
+            El procedimiento es <strong>obligatorio,</strong> si no presenta colocar ninguno
+          </span>
+          <span *ngIf="diagnosticoForm.get('procedimiento')?.hasError('pattern')">
+            No puede comenzar con un espacio en blanco
+          </span>
         </div>
 
         <button type="submit" [disabled]="diagnosticoForm.invalid">
