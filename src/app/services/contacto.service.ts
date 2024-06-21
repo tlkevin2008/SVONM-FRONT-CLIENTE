@@ -7,7 +7,7 @@ import { Contacto } from '../models/contacto';
   providedIn: 'root'
 })
 export class ContactoService {
-  url = 'https://fantastic-waddle-xqxvxjw67p9h99x9-4000.app.github.dev/api/contactos/';
+  url = 'https://redesigned-fiesta-pq9p9xrv5xgh65vr-4000.app.github.dev/api/contactos/';
 
   constructor(private http: HttpClient) { }
 

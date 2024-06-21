@@ -8,7 +8,7 @@ import { Image } from '../models/image';
 })
 export class ImageUpService {
 
-  url = 'http://localhost:4000/api/image/upload';  
+  url = 'https://redesigned-fiesta-pq9p9xrv5xgh65vr-4000.app.github.dev/api/image/upload';  
 
   constructor(private http: HttpClient) { }
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { WebcamModule } from 'ngx-webcam';
@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 import { HttpClientModule } from '@angular/common/http';
-
+import { VirtualTryOnComponent } from './components/virtual-try-on/virtual-try-on.component';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,7 +16,6 @@ import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-p
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
-
 import { SolicitarCitasComponent } from './components/solicitar-cita/solicitar-cita.component';
 import { ProbadorVirtualComponent } from './components/probador-virtual/probador-virtual.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
@@ -36,8 +35,8 @@ import { ContactosComponent } from './components/contactos/contactos.component';
     ServiciosComponent,
     ModalVisualizarDiagnosticoComponent,
     ContactosComponent,
-    NosotrosComponent
-
+    NosotrosComponent,
+    VirtualTryOnComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +49,7 @@ import { ContactosComponent } from './components/contactos/contactos.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] //
 })
 export class AppModule { }

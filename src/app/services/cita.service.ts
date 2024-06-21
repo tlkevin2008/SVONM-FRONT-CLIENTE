@@ -7,7 +7,7 @@ import { Cita } from '../models/cita';
   providedIn: 'root'
 })
 export class CitaService {
-  url = 'http://localhost:4000/api/citas/';   //http://localhost:4000/api/citas/
+  url = 'https://redesigned-fiesta-pq9p9xrv5xgh65vr-4000.app.github.dev/api/citas/';   //http://localhost:4000/api/citas/
 
   constructor(private http: HttpClient) { }
 
