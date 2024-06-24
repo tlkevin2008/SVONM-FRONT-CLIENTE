@@ -13,21 +13,23 @@
       </div>
     </div>
     <div>
-      <label>Teléfono / Movil:</label>
-      <input type="number" formControlName="telefono"
-          placeholder="Escriba su número..." />
-      <div class="text-danger"
-        *ngIf="contactoForm.get('telefono')?.hasError('required') && contactoForm.get('telefono')?.touched">
+      <label>Teléfono / Móvil:</label>
+      <input type="number" formControlName="telefono" placeholder="Escriba su número..." required pattern="^\d{9}$" />
+      <div class="text-danger" *ngIf="contactoForm.get('telefono')?.hasError('required') && contactoForm.get('telefono')?.touched">
         <span>Su número es <strong>obligatorio</strong></span>
+      </div>
+      <div class="text-danger" *ngIf="contactoForm.get('telefono')?.hasError('pattern') && contactoForm.get('telefono')?.touched">
+        <span>El formato del número de teléfono es <strong>inválido</strong>. Solo 9 dígitos</span>
       </div>
     </div>
     <div>
       <label>Correo Electrónico:</label>
-      <input type="text" formControlName="email"
-          placeholder="Escriba su email..." />
-      <div class="text-danger"
-        *ngIf="contactoForm.get('email')?.hasError('required') && contactoForm.get('email')?.touched">
+      <input type="text" formControlName="email" placeholder="Escriba su email..." required pattern="^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}$" />
+      <div class="text-danger" *ngIf="contactoForm.get('email')?.hasError('required') && contactoForm.get('email')?.touched">
         <span>Su correo electrónico es <strong>obligatorio</strong></span>
+      </div>
+      <div class="text-danger" *ngIf="contactoForm.get('email')?.hasError('pattern') && contactoForm.get('email')?.touched">
+        <span>El formato del correo electrónico es <strong>inválido</strong></span>
       </div>
     </div>
     <div>
