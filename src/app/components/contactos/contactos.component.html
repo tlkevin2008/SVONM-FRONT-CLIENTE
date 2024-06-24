@@ -4,13 +4,24 @@
   <h2>Formulario de Contacto</h2>
   <form [formGroup]="contactoForm" (ngSubmit)="agregarContacto()">
     <div>
+
       <label>Nombre:</label>
       <input type="text" formControlName="nombre"
-          placeholder="Escriba su nombre..." />
+          placeholder="Escriba su nombre..." required pattern="[A-Za-z ]+" required pattern="^\S.*"/>
+      
       <div class="text-danger"
         *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">
         <span>Su nombre es <strong>obligatorio</strong></span>
       </div>
+
+      <div class="text-danger" *ngIf="contactoForm.get('nombre')?.hasError('pattern') && contactoForm.get('nombre')?.touched">
+        <span>Escriba un nombre <strong>válido</strong>. No contiene números</span>
+      </div>
+
+      <div class="text-danger" *ngIf="contactoForm.get('nombre')?.hasError('pattern') && contactoForm.get('nombre')?.touched">
+        <span>Escriba un nombre <strong>válido</strong>. No empieze con espacios en blanco</span>
+      </div>
+
     </div>
 
 
@@ -28,18 +39,23 @@
 
     <div>
       <label>Correo Electrónico:</label>
-      <input type="text" formControlName="email"
-          placeholder="Escriba su email..." />
-      <div class="text-danger"
-        *ngIf="contactoForm.get('email')?.hasError('required') && contactoForm.get('email')?.touched">
+      <input type="text" formControlName="email" placeholder="Escriba su email..." required pattern="^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}$" />
+      <div class="text-danger" *ngIf="contactoForm.get('email')?.hasError('required') && contactoForm.get('email')?.touched">
         <span>Su correo electrónico es <strong>obligatorio</strong></span>
       </div>
-    </div>
-    <div>
+      <div class="text-danger" *ngIf="contactoForm.get('email')?.hasError('pattern') && contactoForm.get('email')?.touched">
+        <span>El formato del correo electrónico es <strong>inválido</strong></span>
+      </div>
+
+
       <label>Mensaje:</label>
-      <textarea type="text" formControlName="mensaje"
-          placeholder="Escriba su mensaje..."></textarea>
+      <input type="text" formControlName="mensaje"
+      placeholder="Escriba su mensaje... (Max 100)" required pattern="^.{0,100}$"/>
+      <div class="text-danger" *ngIf="contactoForm.get('mensaje')?.hasError('pattern') && contactoForm.get('mensaje')?.touched">
+        <span>Escriba un mensaje <strong>válido</strong>. Máximo 100 caracteres</span>
+      </div>
     </div>
+
     <button routerLink="/" class="btn btn-secondary float-start">Volver</button>
     <button type="submit" [disabled]="contactoForm.invalid" class="float-end">Enviar</button>
   </form>
