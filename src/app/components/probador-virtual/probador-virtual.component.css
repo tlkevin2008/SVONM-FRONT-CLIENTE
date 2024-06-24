@@ -70,22 +70,31 @@ img {
 }
 
 /* Estilos para la imagen capturada */
+.captured-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .captured-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
+  max-width: 100%;
   width: 100%;
   height: auto;
+  position: relative; /* Asegura que se puedan posicionar elementos dentro */
 }
 
 /* Estilos para la imagen del producto seleccionado */
-.selected-product-image {
-  position: absolute;
-  top: 50%; /* Ajusta la posición verticalmente según sea necesario */
-  left: 50%; /* Ajusta la posición horizontalmente según sea necesario */
-  transform: translate(-50%, -50%); /* Centra la imagen en el punto medio del contenedor */
-  cursor: pointer;
-  z-index: 100; /* Asegura que la imagen del producto esté encima de la imagen capturada */
-  pointer-events: auto; /* Permite que el elemento sea interactivo */
-  border: 2px solid #3498db; /* Borde para resaltar el elemento seleccionado */
+.product-image {
+  position: absolute; /* Posicionamiento absoluto */
+  max-width: 100px; /* Tamaño máximo del producto */
+  max-height: 100px;
+  transform: translate(-50%, -50%); /* Centrado */
+  z-index: 1; /* Asegura que esté por encima de la imagen capturada */
+  cursor: move;
+  pointer-events: auto;
+}
+
+.btn {
+  margin-top: 10px;
 }

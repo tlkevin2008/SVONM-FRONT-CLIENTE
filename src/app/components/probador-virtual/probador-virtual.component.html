@@ -1,51 +1,61 @@
 <app-header></app-header>
 
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <div class="card-body1">
-            <div id="vto-tester" class="vto-tester">
-              <h1>Prepare su cámara</h1>
-              <div *ngIf="showCamera">
-                <webcam [height]="300" [width]="400" [trigger]="captureTrigger" (imageCapture)="onImageCapture($event)"></webcam>
-                <button (click)="capture()" class="btn btn-primary mt-3">Capturar Imagen</button>
-              </div>
-              <div *ngIf="!showCamera && capturedImage">
-                <img [src]="capturedImage.data" alt="Imagen Capturada" class="mt-3">
-                <button (click)="retake()" class="btn btn-primary mt-3">Volver a Capturar</button>
-              </div>
-              <button *ngIf="capturedImage" (click)="uploadImage()" class="btn btn-success mt-3">Subir Imagen</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <div id="vto-tester" class="vto-tester">
+            <h1>Prepare su cámara</h1>
+            <div *ngIf="showCamera">
+              <webcam [height]="300" [width]="400" [trigger]="captureTrigger" (imageCapture)="onImageCapture($event)"></webcam>
+              <button (click)="capture()" class="btn btn-primary mt-3">Capturar Imagen</button>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card h-100">
-          <h1 class="card-header">Seleccione el producto</h1>
-          <div class="card-body overflow-auto">
-            <!-- Contenido del catálogo -->
-            <div class="card mb-3" (click)="onProductSelect('assets/fotos/imagenlentes.png')">
-              <img src="assets/fotos/imagenlentes.png" class="card-img-top" alt="Imagen del catálogo">
-              <div class="card-body">
-                <h5 class="card-title">Lentes</h5>
-                <p class="card-subtitle">Descripción:</p>
-                <p class="card-text">Precio: S/100 - Marca: Ray Ban - Código: 123</p>
-                <p class="card-text">Otros: Color: negro Material: metal</p>
+            <div *ngIf="!showCamera && capturedImage" class="captured-image-container">
+              <!-- Imagen capturada -->
+              <img [src]="capturedImage.data" alt="Imagen Capturada" class="captured-image">
+              <!-- Imagen del producto seleccionado -->
+              <img *ngIf="selectedProductImage" [src]="selectedProductImage" alt="Producto Seleccionado" class="product-image"
+                [ngStyle]="productImageStyles" (mousedown)="onMouseDown($event)">
+                <div class="btn-group mt-2" role="group">
+                  <button class="btn btn-secondary" (click)="scaleImage(1.1)">Aumentar</button>
+                  <button class="btn btn-secondary" (click)="scaleImage(0.9)">Reducir</button>
+                </div>
+              <!-- Botones -->
+              <div>
+                <button (click)="retake()" class="btn btn-primary mt-3">Volver a Capturar</button>
+                <button *ngIf="capturedImage" (click)="uploadImage()" class="btn btn-success mt-3">Subir Imagen</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="card h-100">
+        <h1 class="card-header">Seleccione el producto</h1>
+        <div class="card-body overflow-auto">
+          <!-- Contenido del catálogo -->
+          <div class="card mb-3" (click)="onProductSelect('assets/fotos/imagenlentes.png')">
+            <img src="assets/fotos/imagenlentes.png" class="card-img-top" alt="Imagen del catálogo">
+            <div class="card-body">
+              <h5 class="card-title">Lentes</h5>
+              <p class="card-subtitle">Descripción:</p>
+              <p class="card-text">Precio: S/100 - Marca: Ray Ban - Código: 123</p>
+              <p class="card-text">Otros: Color: negro Material: metal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</body>
+</div>
 
 <app-footer></app-footer>
 
 
 
+<!--(click)="onProductSelect(catalogo.imageUrl)-->
 
 <!--
             <div class="row g-4">
