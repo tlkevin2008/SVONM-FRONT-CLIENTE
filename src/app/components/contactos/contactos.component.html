@@ -4,24 +4,14 @@
   <h2>Formulario de Contacto</h2>
   <form [formGroup]="contactoForm" (ngSubmit)="agregarContacto()">
     <div>
-
-      <label>Nombre:</label>
-      <input type="text" formControlName="nombre"
-          placeholder="Escriba su nombre..." required pattern="[A-Za-z ]+" required pattern="^\S.*"/>
-      
-      <div class="text-danger"
-        *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">
+      <label>Nombre</label>
+      <input type="text" formControlName="nombre" placeholder="Escriba su nombre..." pattern="^([A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ']*([- ][A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ']*)*)?$" />
+      <div class="text-danger" *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">
         <span>Su nombre es <strong>obligatorio</strong></span>
       </div>
-
       <div class="text-danger" *ngIf="contactoForm.get('nombre')?.hasError('pattern') && contactoForm.get('nombre')?.touched">
-        <span>Escriba un nombre <strong>válido</strong>. No contiene números</span>
+        <span>Su nombre debe comenzar cada palabra con una <strong> MAYÚSCULA.</strong> </span>
       </div>
-
-      <div class="text-danger" *ngIf="contactoForm.get('nombre')?.hasError('pattern') && contactoForm.get('nombre')?.touched">
-        <span>Escriba un nombre <strong>válido</strong>. No empieze con espacios en blanco</span>
-      </div>
-
     </div>
 
 
