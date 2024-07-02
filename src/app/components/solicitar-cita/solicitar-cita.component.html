@@ -1,6 +1,5 @@
 <app-header></app-header>
 
-<!-- solicitar-cita.component.html -->
 <div class="container">
   <h2>Solicitar Cita</h2>
   <form [formGroup]="citaForm" (ngSubmit)="agregarCita()">
@@ -12,9 +11,11 @@
         class="form-control form-control-lg"
         placeholder="Escriba su nombre..."
       />
-      <div class="text-danger"
-            *ngIf="citaForm.get('nombre')?.hasError('required') && citaForm.get('nombre')?.touched">
+      <div class="text-danger" *ngIf="citaForm.get('nombre')?.hasError('required') && citaForm.get('nombre')?.touched">
         <span>Su nombre es <strong>obligatorio</strong></span>
+      </div>
+      <div class="text-danger" *ngIf="citaForm.get('nombre')?.hasError('pattern') && citaForm.get('nombre')?.touched">
+        <span>El nombre no puede empezar con un espacio, no debe contener dos espacios consecutivos, y no debe exceder los 20 caracteres</span>
       </div>
     </div>
     <div class="form-group">
@@ -23,11 +24,13 @@
         type="number"
         formControlName="telefono"
         class="form-control form-control-lg"
-        placeholder="Escriba su número de telefono..."
+        placeholder="Escriba su número de teléfono..."
       />
-      <div class="text-danger"
-            *ngIf="citaForm.get('telefono')?.hasError('required') && citaForm.get('telefono')?.touched">
-        <span>Su telefono es <strong>obligatorio</strong></span>
+      <div class="text-danger" *ngIf="citaForm.get('telefono')?.hasError('required') && citaForm.get('telefono')?.touched">
+        <span>Su teléfono es <strong>obligatorio</strong></span>
+      </div>
+      <div class="text-danger" *ngIf="citaForm.get('telefono')?.hasError('pattern') && citaForm.get('telefono')?.touched">
+        <span>El teléfono debe tener entre 7 y 9 dígitos numéricos</span>
       </div>
     </div>
     <div class="form-group">
@@ -36,26 +39,26 @@
         type="text"
         formControlName="email"
         class="form-control form-control-lg"
-        placeholder="Escriba su número de correo electrónico..."
+        placeholder="Escriba su correo electrónico..."
       />
-      <div class="text-danger"
-            *ngIf="citaForm.get('email')?.hasError('required') && citaForm.get('email')?.touched">
+      <div class="text-danger" *ngIf="citaForm.get('email')?.hasError('required') && citaForm.get('email')?.touched">
         <span>Su correo electrónico es <strong>obligatorio</strong></span>
+      </div>
+      <div class="text-danger" *ngIf="citaForm.get('email')?.hasError('pattern') && citaForm.get('email')?.touched">
+        <span>Ingrese un correo electrónico válido con un máximo de 20 caracteres, sin espacios y con el símbolo '&#64;'</span>
       </div>
     </div>
     <div class="form-group">
       <label>Fecha de la cita: (No atendemos Domingos)</label>
       <input type="date" formControlName="fecha" />
-      <div class="text-danger"
-            *ngIf="citaForm.get('fecha')?.hasError('required') && citaForm.get('fecha')?.touched">
+      <div class="text-danger" *ngIf="citaForm.get('fecha')?.hasError('required') && citaForm.get('fecha')?.touched">
         <span>La fecha es <strong>obligatoria</strong></span>
       </div>
     </div>
     <div class="form-group">
       <label>Hora de la cita: (Atendemos de 10am - 7pm)</label>
       <input type="time" formControlName="tiempo" />
-      <div class="text-danger"
-            *ngIf="citaForm.get('tiempo')?.hasError('required') && citaForm.get('tiempo')?.touched">
+      <div class="text-danger" *ngIf="citaForm.get('tiempo')?.hasError('required') && citaForm.get('tiempo')?.touched">
         <span>La hora es <strong>obligatoria</strong></span>
       </div>
     </div>
@@ -71,10 +74,7 @@
     <button type="submit" [disabled]="citaForm.invalid" class="btn btn-primary btn-lg float-end">
       Solicitar
     </button>
-    <button
-      routerLink="/"
-      class="btn btn-secondary btn-lg float-start"
-    >
+    <button routerLink="/" class="btn btn-secondary btn-lg float-start">
       Volver
     </button>
   </form>

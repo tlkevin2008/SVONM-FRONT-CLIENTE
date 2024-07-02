@@ -13,44 +13,51 @@ import { CitaService } from 'src/app/services/cita.service';
 export class SolicitarCitasComponent implements OnInit {
   citaForm: FormGroup;
 
-  constructor(private fb: FormBuilder, 
-              private router: Router, 
-              private toastr: ToastrService,
-              private _citaService: CitaService) {
+  constructor(
+    private fb: FormBuilder, 
+    private router: Router, 
+    private toastr: ToastrService,
+    private _citaService: CitaService
+  ) {
     this.citaForm = this.fb.group({
-      nombre: ['', Validators.required],
-      telefono: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      nombre: ['', [Validators.required, Validators.pattern(/^(?!\s)(?!.*\s{2}).{1,20}$/)]],
+      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{7,9}$/)]],
+      email: ['', [Validators.required, Validators.pattern(/^\S+@\S+\.\S{1,19}$/)]],
       fecha: ['', Validators.required],
       tiempo: ['', Validators.required],
       comentario: ['']
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  agregarCita(){
-    console.log(this.citaForm)
+  agregarCita() {
+    console.log(this.citaForm);
 
-    console.log(this.citaForm.get('cita')?.value);
+    if (this.citaForm.invalid) {
+      return;
+    }
 
-    const CITA: Cita ={
+    const CITA: Cita = {
       nombre: this.citaForm.get('nombre')?.value,
       telefono: this.citaForm.get('telefono')?.value,
       email: this.citaForm.get('email')?.value,
       fecha: this.citaForm.get('fecha')?.value,
       tiempo: this.citaForm.get('tiempo')?.value,
       comentario: this.citaForm.get('comentario')?.value,
-    }
+    };
 
     console.log(CITA);
-    this._citaService.guardarCita(CITA).subscribe(data => {
-      this.toastr.success('La cita se realizo con exito!', 'Cita realizada!');
-      this.router.navigate(['/']);
-    }, error => {
-      console.log(error);
-      this.citaForm.reset();
-    })
+
+    this._citaService.guardarCita(CITA).subscribe(
+      data => {
+        this.toastr.success('La cita se realizó con éxito!', 'Cita realizada!');
+        this.router.navigate(['/']);
+      },
+      error => {
+        console.log(error);
+        this.citaForm.reset();
+      }
+    );
   }
 }
