@@ -12,6 +12,7 @@ import { DiagnosticoService } from 'src/app/services/diagnostico.service';
 })
 export class ModalVisualizarDiagnosticoComponent implements OnInit{
   diagnosticoForm: FormGroup;
+  sliderValue: number = 1;
   
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -117,6 +118,10 @@ export class ModalVisualizarDiagnosticoComponent implements OnInit{
   getScale(): number {
     const scaleMatch = this.transform.match(/scale\(([^)]+)\)/);
     return scaleMatch ? parseFloat(scaleMatch[1]) : 1;
+  }
+  updateSliderValue(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.sliderValue = parseInt(input.value, 10);
   }
 
 }
