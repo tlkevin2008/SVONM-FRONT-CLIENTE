@@ -7,7 +7,7 @@ import { Probador } from '../models/probador';
   providedIn: 'root'
 })
 export class ProbadorService {
-  url = 'http://localhost:4000/api/probador/'
+  url = 'https://fluffy-goldfish-xqxvxjw67v5h6g6g-4000.app.github.dev/api/probador/'
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Diagnostico } from '../models/diagnostico';
   providedIn: 'root'
 })
 export class DiagnosticoService {
-  url = 'http://localhost:4000/api/diagnosticos/'
+  url = 'https://fluffy-goldfish-xqxvxjw67v5h6g6g-4000.app.github.dev/api/diagnosticos/'
 
   constructor(private http: HttpClient) { }
 

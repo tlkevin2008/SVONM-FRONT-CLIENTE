@@ -7,7 +7,7 @@ import { Contacto } from '../models/contacto';
   providedIn: 'root'
 })
 export class ContactoService {
-  url = 'http://localhost:4000/api/contactos/';
+  url = 'https://fluffy-goldfish-xqxvxjw67v5h6g6g-4000.app.github.dev/api/contactos/';
 
   constructor(private http: HttpClient) { }
 
