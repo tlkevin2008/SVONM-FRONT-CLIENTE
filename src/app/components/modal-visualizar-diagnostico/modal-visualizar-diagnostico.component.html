@@ -30,7 +30,8 @@
     <div class="formulario">
       <h2>ACERQUE O ALEJE EL DIAGNOSTICO SEGUN SE LE INDICA</h2>
       <form [formGroup]="diagnosticoForm" (ngSubmit)="agregarDiagnostico()">
-        <label>¿Hasta qué fila puede leer?</label><b>Rango del zoom de la imagen {{ sliderValue }}</b>
+        <label>¿Hasta qué fila puede leer? <strong>Asegurese de estar a 1m de distancia (el registro se hizo en una pantalla de 27 pulgadas)</strong>, hacer la prueba entre 50cm a un 1m</label>
+        <b>Rango del zoom de la imagen {{ sliderValue }}</b>
         <input
           type="text"
           formControlName="fila"
@@ -62,7 +63,7 @@
             Su malestar es <strong>obligatorio,</strong> si no presenta colocar ninguno
           </span>
           <span *ngIf="diagnosticoForm.get('malestar')?.hasError('pattern')">
-            No puede comenzar con un espacio en blanco
+            No puede comenzar con un espacio en blanco ni tener caracteres especiales, y debe tener un máximo de 20 caracteres
           </span>
         </div>
         <br />
@@ -80,14 +81,14 @@
             El procedimiento es <strong>obligatorio,</strong> si no presenta colocar ninguno
           </span>
           <span *ngIf="diagnosticoForm.get('procedimiento')?.hasError('pattern')">
-            No puede comenzar con un espacio en blanco
+            No puede comenzar con un espacio en blanco ni tener caracteres especiales, y debe tener un máximo de 20 caracteres
           </span>
         </div>
 
-        <button type="submit" [disabled]="diagnosticoForm.invalid">
+        <button type="submit" [disabled]="diagnosticoForm.invalid" class="submit-button">
           Enviar
         </button>
-        <button routerLink="/" type="">Volver</button>
+        <button routerLink="/" type="button">Volver</button>
       </form>
     </div>
   </div>
