@@ -7,7 +7,7 @@ import { Probador } from '../models/probador';
   providedIn: 'root'
 })
 export class ProbadorService {
-  url = 'https://fantastic-waddle-xqxvxjw67p9h99x9-4000.app.github.dev/api/probador/'
+  url = 'http://localhost:4000/api/probador/'
 
   constructor(private http: HttpClient) { }
 

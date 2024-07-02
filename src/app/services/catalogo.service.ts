@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CatalogoService {
-  url = 'https://redesigned-fiesta-pq9p9xrv5xgh65vr-4000.app.github.dev/api/catalogos/';     //http://localhost:4000/api/catalogos/
+  url = 'http://localhost:4000/api/productos/';     //http://localhost:4000/api/catalogos/
 
   constructor(private http : HttpClient) { }
 
